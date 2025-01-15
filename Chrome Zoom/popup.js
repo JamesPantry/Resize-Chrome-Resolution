@@ -3,7 +3,6 @@ document.getElementById('saveButton').addEventListener('click', () => {
     const zoom1080p = parseFloat(document.getElementById('zoom1080p').value);
     const zoom720p = parseFloat(document.getElementById('zoom720p').value);
 
-    // Save the zoom levels to Chrome's storage
     chrome.storage.sync.set(
         { zoom1440p, zoom1080p, zoom720p },
         () => {
@@ -12,7 +11,6 @@ document.getElementById('saveButton').addEventListener('click', () => {
     );
 });
 
-// Load saved zoom levels when the popup is opened
 window.onload = () => {
     chrome.storage.sync.get(['zoom1440p', 'zoom1080p', 'zoom720p'], (data) => {
         if (data.zoom1440p !== undefined) {
